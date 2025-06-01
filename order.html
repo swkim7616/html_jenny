@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MacBook World: 주문</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>MacBook World</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">홈</a></li>
+          <li><a href="history.html">역사</a></li>
+          <li><a href="versions.html">버전</a></li>
+          <li><a href="comparison.html">비교</a></li>
+          <li><a href="order.html">주문</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="content-section">
+        <h2>나만의 MacBook 주문하기</h2>
+        <p>
+          원하는 MacBook 모델을 선택하고 수량을 입력하여 지금 바로 주문을 시작해
+          보세요. 당신의 새로운 MacBook이 기다리고 있습니다!
+        </p>
+
+        <form id="macbookOrderForm">
+          <div class="form-group">
+            <label for="macbookModel">MacBook 모델 선택:</label>
+            <select id="macbookModel" name="macbookModel" required>
+              <option value="">-- 모델을 선택하세요 --</option>
+              <option value="MacBook Air 13인치 (M2)">
+                MacBook Air 13인치 (M2)
+              </option>
+              <option value="MacBook Air 15인치 (M2)">
+                MacBook Air 15인치 (M2)
+              </option>
+              <option value="MacBook Air 13인치 (M3)">
+                MacBook Air 13인치 (M3)
+              </option>
+              <option value="MacBook Air 15인치 (M3)">
+                MacBook Air 15인치 (M3)
+              </option>
+              <option value="MacBook Pro 14인치 (M3)">
+                MacBook Pro 14인치 (M3)
+              </option>
+              <option value="MacBook Pro 14인치 (M3 Pro/Max)">
+                MacBook Pro 14인치 (M3 Pro/Max)
+              </option>
+              <option value="MacBook Pro 16인치 (M3 Pro/Max)">
+                MacBook Pro 16인치 (M3 Pro/Max)
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="macbookPrice">예상 가격 (단위: 만 원):</label>
+            <input
+              type="number"
+              id="macbookPrice"
+              name="macbookPrice"
+              value="150"
+              min="100"
+              max="500"
+              step="10"
+              required
+            />
+            <small
+              >선택된 모델의 기본 예상 가격입니다. 실제 가격은 구성에 따라
+              달라질 수 있습니다.</small
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="quantity">수량:</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              value="1"
+              min="1"
+              max="10"
+              required
+            />
+          </div>
+
+          <button type="submit">주문하기</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 MacBook World. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
