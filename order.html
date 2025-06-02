@@ -2,100 +2,72 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MacBook World: 주문</title>
+    <title>MacBook World: 주문하기</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <script type="text/javascript" src="javascript.js"></script>
   </head>
   <body>
     <header>
       <h1>MacBook World</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">홈</a></li>
-          <li><a href="history.html">역사</a></li>
-          <li><a href="versions.html">버전</a></li>
-          <li><a href="comparison.html">비교</a></li>
-          <li><a href="order.html">주문</a></li>
-        </ul>
-      </nav>
+      <br>
+
+      <script type = "text/javascript">
+        writemenu("주문하기");
+      </script>
+    
     </header>
 
-    <main>
-      <section class="content-section">
-        <h2>나만의 MacBook 주문하기</h2>
-        <p>
-          원하는 MacBook 모델을 선택하고 수량을 입력하여 지금 바로 주문을 시작해
-          보세요. 당신의 새로운 MacBook이 기다리고 있습니다!
-        </p>
+    <article>
+      <h2>나만의 MacBook 주문하기</h2>
+      <p>
+        원하는 MacBook 모델과 배송일을 선택하여 주문할 수 있습니다.
+      </p>
 
-        <form id="macbookOrderForm">
-          <div class="form-group">
-            <label for="macbookModel">MacBook 모델 선택:</label>
-            <select id="macbookModel" name="macbookModel" required>
-              <option value="">-- 모델을 선택하세요 --</option>
-              <option value="MacBook Air 13인치 (M2)">
-                MacBook Air 13인치 (M2)
-              </option>
-              <option value="MacBook Air 15인치 (M2)">
-                MacBook Air 15인치 (M2)
-              </option>
-              <option value="MacBook Air 13인치 (M3)">
-                MacBook Air 13인치 (M3)
-              </option>
-              <option value="MacBook Air 15인치 (M3)">
-                MacBook Air 15인치 (M3)
-              </option>
-              <option value="MacBook Pro 14인치 (M3)">
-                MacBook Pro 14인치 (M3)
-              </option>
-              <option value="MacBook Pro 14인치 (M3 Pro/Max)">
-                MacBook Pro 14인치 (M3 Pro/Max)
-              </option>
-              <option value="MacBook Pro 16인치 (M3 Pro/Max)">
-                MacBook Pro 16인치 (M3 Pro/Max)
-              </option>
-            </select>
-          </div>
+      <section>
+        <div class="formorder">
+          <label for="model">모델 : </label>
+          <select id="model" name="model" size="1">
+            <option value="MacBook Air 13인치 (M2)">MacBook Air 13인치 (M2)</option>
+            <option value="MacBook Air 15인치 (M2)">MacBook Air 15인치 (M2)</option>
+            <option value="MacBook Air 13인치 (M3)">MacBook Air 13인치 (M3)</option>
+            <option value="MacBook Air 15인치 (M3)">MacBook Air 15인치 (M3)</option>
+          </select>
+        </div>
 
-          <div class="form-group">
-            <label for="macbookPrice">예상 가격 (단위: 만 원):</label>
-            <input
-              type="number"
-              id="macbookPrice"
-              name="macbookPrice"
-              value="150"
-              min="100"
-              max="500"
-              step="10"
-              required
-            />
-            <small
-              >선택된 모델의 기본 예상 가격입니다. 실제 가격은 구성에 따라
-              달라질 수 있습니다.</small
-            >
-          </div>
+        <div class="formorder">
+          <label for="delivery">희망 배송일 : </label>
+          <input id="delivery" name="delivery" type="date">
+        </div>
 
-          <div class="form-group">
-            <label for="quantity">수량:</label>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              value="1"
-              min="1"
-              max="10"
-              required
-            />
-          </div>
-
-          <button type="submit">주문하기</button>
-        </form>
+        <div class="formorder">
+            <button id="orderbutton">주문하기</button>
+        </div>
       </section>
-    </main>
+    </article>
 
-    <footer>
-      <p>&copy; 2025 MacBook World. All rights reserved.</p>
-    </footer>
+    <div id="ordersheet" style="visibility: hidden;">
+      <h3>주문 내역</h3>
+      <p>주문해 주셔서 감사합니다.</p>
+      <p>선택하신 모델을 희망날짜에 배송해드리도록 노력하겠습니다.</p>
+      <br>
+      <p style="font-size: small; color:#0000aa">[주문하기] 버튼을 한 번 더 누르면 주문이 취소됩니다.</p>
+    </div>  
+
+    <script type="text/javascript">
+      document.getElementById("orderbutton").onclick = click_button;
+      function click_button() {
+        var dom= document.getElementById("ordersheet");
+        if (dom.style.visibility== "visible")
+          dom.style.visibility= "hidden";
+        else
+          dom.style.visibility= "visible";
+
+        //document.getElementById("ordersheet").innerHTML = "주문이 완료되었습니다.";
+      }
+    </script> 
+
+    <script type="text/javascript">
+      writefooter();
+    </script> 
   </body>
 </html>
